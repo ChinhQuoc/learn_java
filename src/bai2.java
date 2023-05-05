@@ -21,6 +21,7 @@ public class bai2 {
 
 		System.out.print("Tuổi: ");
 		int age = scanner.nextInt();
+		scanner.nextLine(); // skip the newline character
 
 		if (age < 0) {
 			System.err.println("Tuổi không hợp lệ!");
@@ -30,13 +31,12 @@ public class bai2 {
 		System.out.println("Giới tính \n0. Nam \n1. Nữ \n2. khác ");
 		System.out.print("Bạn chọn: ");
 		int sex = scanner.nextInt();
+		scanner.nextLine(); // skip the newline character
 
 		if (sex < 0 || sex > 2) {
 			System.err.println("Lựa chọn không hợp lệ!");
 			return;
 		}
-
-		scanner.nextLine(); // skip the newline character
 
 		System.out.print("Mã số sv: ");
 		String studentId = scanner.nextLine();
