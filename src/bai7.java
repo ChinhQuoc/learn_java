@@ -12,15 +12,15 @@ public class bai7 {
 
 		String[] names = new String[3];
 		int[] years = new int[3];
-		String[] sexs = new String[3];
+		String[] genders = new String[3];
 
-		input(names, years, sexs, scanner);
+		input(names, years, genders, scanner);
 
 		int vitri = findIndexMaxYear(years);
-		System.out.println("KQ: cán bộ " + names[vitri] + ", sinh năm " + years[vitri] + ", giới tính " + sexs[vitri]);
+		System.out.println("KQ: cán bộ " + names[vitri] + ", sinh năm " + years[vitri] + ", giới tính " + genders[vitri]);
 	}
 
-	public static void input(String[] names, int[] years, String[] sexs, Scanner scanner) {
+	public static void input(String[] names, int[] years, String[] genders, Scanner scanner) {
 		System.out.println("Nhập các thông tin sau: ");
 
 		for (int i = 0; i < names.length; i++) {
@@ -45,32 +45,32 @@ public class bai7 {
 				System.out.print("Giới tính: ");
 				selected = scanner.nextInt();
 				scanner.nextLine();
-			} while (isInvalidSex(selected));
+			} while (isInvalidGender(selected));
 
-			sexs[i] = sexDetermination(selected);
+			genders[i] = genderDetermination(selected);
 		}
 	}
 
-	public static String sexDetermination(int selected) {
-		String sex = "";
+	public static String genderDetermination(int selected) {
+		String gender = "";
 		switch (selected) {
 		case 1: {
-			sex = "nam";
+			gender = "nam";
 			break;
 		}
 		case 2: {
-			sex = "nữ";
+			gender = "nữ";
 			break;
 		}
 		case 3: {
-			sex = "khác";
+			gender = "khác";
 			break;
 		}
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + selected);
 		}
 
-		return sex;
+		return gender;
 	}
 
 	public static boolean isInvalidName(String name) {
@@ -92,7 +92,7 @@ public class bai7 {
 		return false;
 	}
 
-	public static boolean isInvalidSex(int selected) {
+	public static boolean isInvalidGender(int selected) {
 		if (selected < 1 || selected > 3) {
 			System.err.println("Lựa chọn không hợp lệ!");
 			return true;
