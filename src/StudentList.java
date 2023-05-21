@@ -32,7 +32,7 @@ public class StudentList {
 		int index = 0;
 
 		if (studentList.isEmpty()) {
-			System.out.println("Không có sinh viên nào");
+			System.out.println("There are no students!");
 		} else {
 			System.out.println("\t| ID\t| Name\t| Math\t| Physis\t| Chemistry\t| Average\t| Rating\t");
 			for (Student student : studentList) {
