@@ -68,8 +68,8 @@ public class main {
 			break;
 		}
 		case 7: {
-			System.exit(0);
 			System.out.println("Kết thúc!");
+			System.exit(0);
 			break;
 		}
 		default:
