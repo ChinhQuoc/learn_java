@@ -79,11 +79,48 @@ public class Account {
 	public double transferMoney(double amountTranfer) {
 		return amountOutstanding - amountTranfer;
 	}
+	
+	public Account createAccount(Accounts accounts) {
+		Scanner scanner = new Scanner(System.in);
+		long accountNumber = 0;
+		String accountName = "";
+
+		do {
+			System.out.print("Số tài khoản: ");
+			accountNumber = scanner.nextLong();
+			scanner.nextLine();
+		} while (isInvalidAccountNumber(accountNumber, accounts));
+
+		do {
+			System.out.print("Tên tài khoản: ");
+			accountName = scanner.nextLine();
+		} while (isInvalidAccountName(accountName));
+
+		return new Account(accountNumber, accountName);
+	}
 
 	public void output() {
 		NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
 
 		System.out
 				.println(accountNumber + "\t\t| " + accountName + "\t\t| " + currencyFormat.format(amountOutstanding));
+	}
+	
+	public boolean isInvalidAccountNumber(long accountNumber, Accounts accounts) {
+		if (accountNumber < 100000 || accounts.existAccount(accountNumber)) {
+			System.err.println("Số tài khoản không hợp lệ!");
+			return true;
+		}
+
+		return false;
+	}
+
+	public boolean isInvalidAccountName(String name) {
+		if (name.isEmpty()) {
+			System.err.println("Tên tài khoản không hợp lệ!");
+			return true;
+		}
+
+		return false;
 	}
 }

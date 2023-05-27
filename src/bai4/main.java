@@ -43,7 +43,8 @@ public class main {
 
 		switch (selected) {
 		case 1: {
-			Account account = createAccount(accounts);
+			Account account = new Account();
+			account = account.createAccount(accounts);
 			accounts.addAcount(account);
 			break;
 		}
@@ -87,42 +88,5 @@ public class main {
 		System.out.println("5. Đáo hạn");
 		System.out.println("6. Chuyển khoản");
 		System.out.println("7. Thoát");
-	}
-
-	public static Account createAccount(Accounts accounts) {
-		Scanner scanner = new Scanner(System.in);
-		long accountNumber = 0;
-		String accountName = "";
-
-		do {
-			System.out.print("Số tài khoản: ");
-			accountNumber = scanner.nextLong();
-			scanner.nextLine();
-		} while (isInvalidAccountNumber(accountNumber, accounts));
-
-		do {
-			System.out.print("Tên tài khoản: ");
-			accountName = scanner.nextLine();
-		} while (isInvalidAccountName(accountName));
-
-		return new Account(accountNumber, accountName);
-	}
-
-	public static boolean isInvalidAccountNumber(long accountNumber, Accounts accounts) {
-		if (accountNumber < 100000 || accounts.existAccount(accountNumber)) {
-			System.err.println("Số tài khoản không hợp lệ!");
-			return true;
-		}
-
-		return false;
-	}
-
-	public static boolean isInvalidAccountName(String name) {
-		if (name.isEmpty()) {
-			System.err.println("Tên tài khoản không hợp lệ!");
-			return true;
-		}
-
-		return false;
 	}
 }
