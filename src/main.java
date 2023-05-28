@@ -102,8 +102,8 @@ public class main {
 			break;
 		}
 		case 8: {
-			System.exit(0);
 			System.out.println("Exited!");
+			System.exit(0);
 			break;
 		}
 		default:
