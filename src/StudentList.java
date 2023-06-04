@@ -101,12 +101,19 @@ public class StudentList {
 	}
 
 	public void deleteStudent(int keyword) {
+		boolean isExist = false;
+		
 		for (Student student : studentList) {
 			if (student.getStudentId() == keyword) {
 				studentList.remove(student);
+				isExist = true;
 				System.out.println("Delete successful!");
 				break;
 			}
+		}
+		
+		if (!isExist) {
+			System.out.println("Not found!");
 		}
 	}
 }

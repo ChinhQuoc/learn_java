@@ -40,6 +40,8 @@ public class main {
 	}
 
 	public static void handleSelected(int selected, StudentList studentList) {
+		Scanner scanner = new Scanner(System.in);
+		
 		switch (selected) {
 		case 1: {
 			Student student = new Student();
@@ -70,7 +72,6 @@ public class main {
 			break;
 		}
 		case 5: {
-			Scanner scanner = new Scanner(System.in);
 			StudentList students = new StudentList();
 
 			System.out.print("Input name student yout need to find: ");
@@ -81,7 +82,6 @@ public class main {
 			break;
 		}
 		case 6: {
-			Scanner scanner = new Scanner(System.in);
 			StudentList students = new StudentList();
 
 			System.out.print("Input ID student yout need to find: ");
@@ -92,8 +92,6 @@ public class main {
 			break;
 		}
 		case 7: {
-			Scanner scanner = new Scanner(System.in);
-
 			System.out.print("Input ID student yout need to delete: ");
 			int id = scanner.nextInt();
 
