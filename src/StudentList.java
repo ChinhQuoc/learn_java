@@ -68,7 +68,7 @@ public class StudentList {
 		List<Student> weakScoreStudents = new ArrayList<Student>();
 
 		for (Student student : studentList) {
-			if (student.getRating() == WEAK) {
+			if (student.getRating().equals(WEAK)) {
 				weakScoreStudents.add(student);
 			}
 		}
@@ -115,5 +115,18 @@ public class StudentList {
 		if (!isExist) {
 			System.out.println("Not found!");
 		}
+	}
+	
+	public boolean existID(int accountNumber) {
+		boolean isExist = false;
+
+		for (Student student : studentList) {
+			if (student.getStudentId() == accountNumber) {
+				isExist = true;
+				break;
+			}
+		}
+
+		return isExist;
 	}
 }

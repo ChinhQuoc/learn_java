@@ -46,7 +46,7 @@ public class main {
 		case 1: {
 			Student student = new Student();
 
-			student.input();
+			student.input(studentList);
 			studentList.addStudent(student);
 
 			student.setAverageScore(student.avegareScore());

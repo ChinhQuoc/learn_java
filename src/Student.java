@@ -89,7 +89,7 @@ public class Student {
 		this.rating = rating;
 	}
 
-	public void input() {
+	public void input(StudentList list) {
 		Scanner scanner = new Scanner(System.in);
 
 		do {
@@ -100,7 +100,7 @@ public class Student {
 		do {
 			System.out.print("Student ID: ");
 			studentId = scanner.nextInt();
-		} while (isInvalidID(studentId));
+		} while (isInvalidID(studentId, list));
 
 		do {
 			System.out.print("Math score: ");
@@ -159,8 +159,8 @@ public class Student {
 		return false;
 	}
 
-	public boolean isInvalidID(int id) {
-		if (id < 0) {
+	public boolean isInvalidID(int id, StudentList list) {
+		if (id < 0 || list.existID(id)) {
 			System.err.println("ID invalid!");
 			return true;
 		}
